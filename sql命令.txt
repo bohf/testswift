@@ -1,0 +1,402 @@
+//创建数据库
+create database  库名；
+
+//选择数据库
+use 库名；
+
+//备份
+mysqldump -u root -p123456 myschool student result > d:\fangbo2.sql
+
+//固定行
+limit
+
+//唯一键
+unique
+
+//四舍五入
+round（，数字） 
+
+//删除数据库
+drop database 数据库名；
+
+//如果不存在就建立
+create database if not exists 库名；
+
+//如果存在就删除
+drop database if exists 库名；
+
+//删除表
+drop table if exists 表名；
+
+//查看数据库列表
+show databases；
+
+//自动增加字段
+auto_increment
+
+//给默认值
+default
+
+//事务
+begin;//开始
+commit;//提交
+rollback;//回滚，取消
+
+//string null
+is null;
+
+//查看表字段
+desc 表；
+
+//查看表内容
+select * from 表名;
+
+//查看表名
+show tables;
+
+//清除所有表数据
+delete from;
+
+//添加主键
+alter table 表名 add constraint pk_主键名 primary key 表名（主键字段）；
+
+//添加外键
+alter table 表名 add constraint fk_外键名
+foreign key （外键字段）
+references 关联表名（关联字段）； 
+
+//唯一约束
+alter table 表名 add constraint uk_主键名 unique key（主键字段）；
+
+//默认约束
+alter table 表名 change 字段名 字段名 数据类型 default'默认';
+
+//联合主键
+alter table 表名 add constraint 主键名 primary key（字段，字段，字段）；//括号要打
+
+//修改表名
+alter table 旧表名 rename 新表名；
+
+//添加字段
+alter table 表名 add 字段名 数据类型 【属性】；
+
+//
+create table emp_back as 
+ select * from emp where 1=0;
+insert into emp_back select * from emp where hiredate>'1982-1-1';
+
+//修改字段名
+alter table 表名 change 旧字段名 新字段名 数据类型 【属性】；
+
+//修改列属性
+alter table 表名 modify 列名 属性；
+
+//删除字段
+alter table 表名 drop 字段；
+
+//视图
+drop view if exists view_名字;   #V_名字
+create view view_名字
+as
+select 字段,字段
+from 表；
+
+//创建表
+create table ha(
+id int(8) not null primary key,
+name varchar(10) default 'ss',
+sex bit,//一位数
+idcard varchar(18) unique key
+)charset=utf8;
+
+写入数据
+set names gbk;//每次必须输入
+
+//全部插入
+insert into 表名 values(内容);
+
+//指定插入数据;
+insert into 表(字段) values(内容);
+
+//一次性插入多行数据
+insert into 表名 values(内容,内容)，（内容,内容），（内容,内容）;
+
+//把一个表字段内容给一个新表 
+create table 新表(select 字段，字段 from 表 where 条件);
+
+//更新内容
+update 表set 字段1=值1，字段2=值3，
+where 条件；
+
+//删除内容
+delete from 表where 条件;
+
+//删除全部内容无法恢复
+truncate table 表;
+
+//单独查看表内容
+select 查看字段1 as 起名，查看字段2 as 起名 from 表；
+
+//去掉重复
+distinct
+
+//顺序 asc 升 desc
+select 字段,字段 from 表
+order by 字段,字段 desc;
+
+//查看每个年级的人数
+select GradeId,count(studentno)
+from Student
+group by GradeId;
+
+//统计各年级的人数
+select gradeid,sex,count(*)
+from student
+group by gradeid,sex;
+
+//查看平均分及格的课程号和平均分
+select SubjectNo,avg(StudentResult) as 平均
+from result
+group by SubjectNo
+having 平均>=60;
+
+//查看每个课程及格的人数和及格学生的平均分
+select SubjectNo,count(StudentNo),Avg(StudentResult)
+from Result
+where StudentResult>=80
+group by SubjectNo;
+
+
+//查看每个课程及格的人数和及格学生的平均分在66以上
+select SubjectNo,count(StudentNo),Avg(StudentResult)
+from Result
+where StudentResult>=60
+group by SubjectNo
+having Avg(StudentResult)>66;
+//查看范围成绩
+select studentno,studentresult
+from 表
+where(studentresult not between 60 and 90)and subjectno=2;
+
+
+select studentno,studentresult
+from 表
+where(studentresult<60 or studentresult>90) and subjectno=2;
+
+
+//查看李开头
+select 字段 from 表 where 字段 like '李%'；
+
+//查看区结尾
+select 字段 from 表 where 字段 like '%区'
+
+//查看三个字
+select 字段 from 表 where 字段 like '__？%'
+
+//表链接内连接
+#语法1
+select * from r,s where r.C=s.C;
+#语法2
+select * from r inner join s on r.C=s.C;
+外连接 左外连接=内连接+左表失配的信息 左主表
+select * from r left outer join s on r.C=s.C;
+右外连接=内连接+右表失配的信息 右主表
+select * from r right outer join s on r.C=s.C;
+
+//查看科目平均成绩，保留2个小数
+select round(avg(成绩),2) from 表 where 科目;
+select round(avg(成绩),2) from 表;
+
+//count查看2号科目的行
+select count(成绩),count(1),count(*) 
+from 表
+where 科目=2;
+
+
+//查看2号科目的最高分和最低分and总分
+select max(成绩) as 高,min(成绩) as 低,sum(成绩) as 总 
+from 表
+where 科目=2;
+
+//字符连接
+SELECT CONCAT('My','S','QL')
+
+//字符替换
+SELECT INSERT('这是数据库',3,10,'mysQL')
+
+//小写字符
+SELECT LOWER('MYSQL')
+
+//大写字符
+SELECT UPPER('MYSQL')
+
+//增加时间
+SELECT DATE_ADD(NOW(),INTERVAL 5 YEAR)
+SELECT DATE_ADD(NOW(),INTERVAL 5 WEEK)
+SELECT DATE_ADD(NOW(),INTERVAL 5 DAY)
+SELECT DATE_ADD(NOW(),INTERVAL 5 MINUTE)
+
+
+//查询所有大于平均科时的科目
+select * from 科目
+where 科时>(
+select round(avg(科时),2) from 科目);
+
+//查看科目 Java logic考过60分的学生名字
+1.
+select subjectno from subject
+where subjectname='java logic';
+2.
+select studentno from Result
+where subjectno=(select subjectno from subject
+where subjectname='java logic') and StudentResult=60;
+
+3.
+select studentname from Student
+where studentno in(select studentno from Result
+where subjectno=(select subjectno from subject
+where subjectname='java logic') and StudentResult=60);
+
+//in
+select studentno from result where studentresult=60 or studentresult=70 or studentresult=80;
+select studentno from result where studentresult in (60,70,80);
+
+
+//查看科目 Java logic的最高分和最低分
+1.查看科目编号
+select subjectno from subject
+where subjectname='java logic';
+
+2.查看最近考试时间
+select max(ExamDate) from Result
+where subjectno=(select subjectno from subject
+where subjectname='java logic'
+);
+
+3.查看最高分和最低分
+select max(StudentResult),min(StudentResult) from Result
+where ExamDate=(select max(ExamDate) from Result
+where subjectno=(select subjectno from subject
+where subjectname='java logic'
+));
+
+
+//查看最近java logic考试人员
+1.
+select subjectno from subject
+where subjectname='java logic';
+
+2.
+select Studentno from result
+where examdate=(
+select max(Examdate)
+from Result
+where subjectno=(select subjectno from subject
+where subjectname='java logic'));
+
+3.
+select * from Student
+where Studentno in (select Studentno from result
+where examdate=(
+select max(Examdate)
+from Result
+where subjectno=(select subjectno from subject
+where subjectname='java logic')));
+查看最近没有参加java考试的人加 not
+select * from Student
+where Studentno (not) in (select Studentno from result
+where examdate=(
+select max(Examdate)
+from Result
+where subjectno=(select subjectno from subject
+where subjectname='java logic')));
+
+
+//数据排序
+order by 字段名 desc limit 5;//显示前5 desc按降序 ASC降序不用写默认  limit显示部分
+
+//检查最近一次Java Logic成绩，（如果有大于80分的），则显示前5名的学生学号和分数
+select StudentResult,subjectno
+from result
+where exists (
+	select * from result
+	where subjectno=(
+	select subjectno
+	from subject
+	where subjectname='java logic')
+	and examdate=(
+	select max(examdate)
+	from result
+	where subjectno=(
+	select subjectno
+	from subject
+	where subjectname='java logic'))
+	and studentresult>80) 
+and subjectno=(
+	select subjectno
+	from subject
+	where subjectname='java logic')
+	and examdate=(
+	select max(examdate)
+	from result
+	where subjectno=(
+		select subjectno
+	from subject
+	where subjectname='java logic'))
+order by StudentResult desc limit 5;
+
+
+
+
+
+#例1检查最近一次Java Logic的成绩，如果没有及格的，则认为考试较难，查询原平均分的基础上加5分
+
+查询Java Logic科目号  2
+select subjectno from subject where subjectname='Java Logic'
+
+在result表查询最近一次Java Logic考试时间  2013-02-17 00:00:00
+select max(examdate) from result where subjectno=2
+
+最近一次考试，科目名称是Java Logic,做一个判断如果没有及格的，在result表查均分加5
+select avg(studentresult)+5 from result
+where subjectno=2 and examdate='2013-02-17 00:00:00' and not exists(及格的成绩)
+
+合成子查询
+select avg(studentresult)+5 from result
+where subjectno=(select subjectno from subject where subjectname='Java Logic') 
+and examdate=(select max(examdate) from result where subjectno=(select subjectno from subject where subjectname='Java Logic'))
+ and not exists(及格的成绩)
+ 
+
+select avg(studentresult)+5 as 平均分
+from result
+where not exists(
+	select *
+	from result
+	where subjectno=(
+		select subjectno
+		from subject
+		where subjectname='Java Logic'
+	)and examdate=(
+		select max(examdate)
+		from result
+		where subjectno=(
+			select subjectno
+			from subject
+			where subjectname='Java Logic'
+		)
+	)and studentresult>=60
+)
+and subjectno=(
+	select subjectno
+	from subject
+	where subjectname='Java Logic'
+)and examdate=(
+	select max(examdate)
+	from result
+	where subjectno=(
+		select subjectno
+		from subject
+		where subjectname='Java Logic'
+	)
+);

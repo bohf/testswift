@@ -23,10 +23,10 @@ class MyAccountViewController: BaseViewController {
        
     
     // 加载视图时会调用该方法
-        override func loadView() {
+       /* override func loadView() {
             super.loadView()
             print("加载视图")
-        }
+        }*/
         
         // 当加载视图结束时调用该方法
         override func viewDidLoad() {

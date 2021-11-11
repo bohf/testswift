@@ -7,12 +7,15 @@
 
 import UIKit
 
+@available(iOS 15.0, *)
 class TableViewController: UITabBarController {
     var indexFlag = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         addControllers()
         // Do any additional setup after loading the view.
+        self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance;
+
     }
     
     private func addControllers() {
@@ -30,6 +33,9 @@ class TableViewController: UITabBarController {
         childVC.tabBarItem.selectedImage = UIImage(named: selectImg)?.withRenderingMode(.alwaysOriginal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(r: 245, g: 90, b: 93)], for: .selected)
         let nav = UINavigationController(rootViewController: childVC)
+        //self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance;
+        nav.navigationBar.scrollEdgeAppearance = UINavigationBarAppearance()
+        
         addChild(nav)
     }
 

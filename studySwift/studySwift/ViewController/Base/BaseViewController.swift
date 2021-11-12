@@ -12,6 +12,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("deinit: \(NSStringFromClass(type(of: self)))")
+        navigationItem.title = "\(type(of: self))"
         // Do any additional setup after loading the view.
     }
     

@@ -9,8 +9,10 @@ import UIKit
 
 class LoginViewController: UIViewController {
     var isBool = false
+    @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
     }
 
     @IBAction func test(_ sender: Any) {
@@ -18,14 +20,8 @@ class LoginViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setUI() {
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
+        loginButton.backgroundColor = UIColor(r: 223, g: 0, b: 23)
     }
-    */
-
 }

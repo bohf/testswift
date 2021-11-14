@@ -28,6 +28,9 @@
 		3E8CD27B2730057500AC478F /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CD2792730057500AC478F /* MyAccountViewController.swift */; };
 		3E8CD27C2730057500AC478F /* MyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CD27A2730057500AC478F /* MyAccountViewController.xib */; };
 		3E8CD27F2730075B00AC478F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CD27E2730075B00AC478F /* BaseViewController.swift */; };
+		3EFBCBCB2741148B00460E47 /* UserSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBCBCA2741148B00460E47 /* UserSignInView.swift */; };
+		3EFBCBD1274116A400460E47 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBCBD0274116A400460E47 /* NibLoadable.swift */; };
+		3EFBCBD327411AA000460E47 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFBCBD227411AA000460E47 /* View.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		3E8CD2792730057500AC478F /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 		3E8CD27A2730057500AC478F /* MyAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyAccountViewController.xib; sourceTree = "<group>"; };
 		3E8CD27E2730075B00AC478F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3EFBCBCA2741148B00460E47 /* UserSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInView.swift; sourceTree = "<group>"; };
+		3EFBCBD0274116A400460E47 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		3EFBCBD227411AA000460E47 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				3E5358C9273E913E00F14972 /* Custom.swift */,
+				3EFBCBD0274116A400460E47 /* NibLoadable.swift */,
 			);
 			path = CustomFile;
 			sourceTree = "<group>";
@@ -134,6 +141,7 @@
 		3E730B7B2732A93C00023ADA /* Loing */ = {
 			isa = PBXGroup;
 			children = (
+				3EFBCBC327410EAD00460E47 /* View */,
 				3E730B7C2732AA3900023ADA /* LoginViewController.swift */,
 				3E730B7D2732AA3900023ADA /* LoginViewController.xib */,
 			);
@@ -208,6 +216,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		3EFBCBC327410EAD00460E47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3EFBCBCA2741148B00460E47 /* UserSignInView.swift */,
+				3EFBCBD227411AA000460E47 /* View.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,6 +289,7 @@
 				3E154DCC272EC07800F0CE31 /* Main.storyboard in Resources */,
 				3E8CD26C2730053100AC478F /* HomeViewController.xib in Resources */,
 				3E8CD2702730054700AC478F /* ProductViewController.xib in Resources */,
+				3EFBCBD327411AA000460E47 /* View.xib in Resources */,
 				3E8CD27C2730057500AC478F /* MyAccountViewController.xib in Resources */,
 				3E8CD2742730055600AC478F /* NewsViewController.xib in Resources */,
 				3E730B7F2732AA3900023ADA /* LoginViewController.xib in Resources */,
@@ -294,9 +312,11 @@
 				3E8CD27F2730075B00AC478F /* BaseViewController.swift in Sources */,
 				3E154DC7272EC07800F0CE31 /* SceneDelegate.swift in Sources */,
 				3E8CD2772730056500AC478F /* ShoppingViewController.swift in Sources */,
+				3EFBCBD1274116A400460E47 /* NibLoadable.swift in Sources */,
 				3E8CD2632730045900AC478F /* TableViewController.swift in Sources */,
 				3E8CD27B2730057500AC478F /* MyAccountViewController.swift in Sources */,
 				3E730B7E2732AA3900023ADA /* LoginViewController.swift in Sources */,
+				3EFBCBCB2741148B00460E47 /* UserSignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

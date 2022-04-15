@@ -141,6 +141,9 @@
 		3E730B7B2732A93C00023ADA /* Loing */ = {
 			isa = PBXGroup;
 			children = (
+				3E8F74D92809A69000A18F72 /* API */,
+				3E8F74D82809A67B00A18F72 /* ViewModel */,
+				3E8F74D72809A67400A18F72 /* Model */,
 				3EFBCBC327410EAD00460E47 /* View */,
 				3E730B7C2732AA3900023ADA /* LoginViewController.swift */,
 				3E730B7D2732AA3900023ADA /* LoginViewController.xib */,
@@ -214,6 +217,27 @@
 				3E8CD27E2730075B00AC478F /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		3E8F74D72809A67400A18F72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3E8F74D82809A67B00A18F72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3E8F74D92809A69000A18F72 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		3EFBCBC327410EAD00460E47 /* View */ = {

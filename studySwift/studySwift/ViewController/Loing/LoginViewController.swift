@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    var isBool = false
+    var isBool = false //user是否点击登录button
     // 记录滑动Y点的值
     var signUpViewOriginY: CGFloat!
     @IBOutlet weak var loginButton: UIButton!
